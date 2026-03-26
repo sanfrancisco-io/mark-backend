@@ -79,15 +79,15 @@ JWT_SECRET=changeme
 - [x] 2-6 атрибутов на товар (Цвет, Размер, Материал и т.д.)
 - [x] 2-10 offers на товар с разными продавцами
 - [x] Даты доставки — текущая неделя (today + 0..6 дней)
-- [ ] Запустить seed, проверить данные в базе
+- [x] Запустить seed, проверить данные в базе
 
-## Фаза 5 — Публичное API
+## Фаза 5 — Публичное API ✓
 
-- [ ] GET /v1/public/products — список с offset/limit пагинацией
-- [ ] Вычислять nearest_delivery_date = min(offers.delivery_date)
-- [ ] GET /v1/public/products/{id} — атрибуты + offers
-- [ ] Параметр ?offers_sort=price|delivery_date
-- [ ] Настроить CORS (origins: http://localhost:3000)
+- [x] GET /v1/public/products — список с offset/limit пагинацией + has_more
+- [x] Вычислять nearest_delivery_date = min(offers.delivery_date)
+- [x] GET /v1/public/products/{id} — атрибуты + offers
+- [x] Параметр ?offers_sort=price|delivery_date
+- [x] Настроить CORS (origins: http://localhost:3000)
 - [ ] Проверить в браузере: localhost:8000/v1/public/products
 
 ## Фаза 6 — Админское API
