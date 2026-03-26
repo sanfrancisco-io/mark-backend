@@ -1,13 +1,14 @@
 # TODO STATE — marketplace-backend
 
 ## Последняя выполненная задача
-Фаза 3 — S3 / MinIO (2026-03-26) ✓
-- app/s3.py: boto3 клиент, ensure_bucket_exists, upload_file, get_public_url
-- app/placeholder.py: генерация PNG без внешних зависимостей
-- app/main.py: lifespan вызывает ensure_bucket_exists при старте
+Фаза 4 — Seed-скрипт (2026-03-26) — ожидает проверки
+- app/seed.py: 10 продавцов, 120 товаров (4 категории × 30), атрибуты, offers, загрузка PNG в MinIO
+- seed сервис добавлен в docker-compose (ручной запуск)
+- защита от повторного запуска: проверяет COUNT(*) в sellers
 
 ## Следующая задача
-Фаза 4: Seed-скрипт — 100+ товаров, атрибуты, offers, загрузка placeholder PNG в MinIO
+Запустить seed: docker compose run --rm seed
+Затем — Фаза 5: Публичное API
 
 ## Контекст
 - стек: Python 3.12, FastAPI, SQLAlchemy 2.x async + asyncpg, Alembic, MinIO (boto3), JWT
@@ -17,13 +18,13 @@
   - stock хранится в Product, не в Offer
   - price_currency default = "RUB"
   - boto3 синхронный, вызовы через run_in_executor
-  - ensure_bucket_exists — страховка при старте (minio-init делает то же в compose)
-  - placeholder PNG генерируется без Pillow (чистый stdlib)
-  - get_public_url строит URL локально без запроса к MinIO
-- Dockerfile подключим к infra позже
+  - placeholder PNG генерируется без Pillow (stdlib)
+  - seed — только ручной запуск, не в автостарте compose
+  - seed идемпотентен: повторный запуск ничего не делает (проверяет sellers)
 - текущие проблемы: нет
 
 ## Лог сессий
 - [2026-03-26] Фаза 1 — структура проекта, 1 итерация, проблем не было
 - [2026-03-26] Фаза 2 — модели + alembic + migrate сервис, миграция прошла успешно
-- [2026-03-26] Фаза 3 — s3.py + placeholder.py + lifespan, 1 итерация
+- [2026-03-26] Фаза 3 — s3.py + placeholder.py + lifespan, проверено: /health 200, MinIO ок
+- [2026-03-26] Фаза 4 — seed.py + seed сервис в compose, ожидает проверки
