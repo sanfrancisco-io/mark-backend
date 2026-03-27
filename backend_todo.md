@@ -99,18 +99,18 @@ JWT_SECRET=changeme
 - [x] GET+POST /v1/admin/sellers
 - [x] CRUD /v1/admin/products/{id}/offers + PUT/DELETE /v1/admin/offers/{id}
 
-## Фаза 7 — Тесты и качество
+## Фаза 7 — Тесты и качество ✓
 
-- [ ] Smoke-тест: GET /v1/public/products → 200
-- [ ] Smoke-тест: GET /v1/public/products/{id} → 200 и 404
-- [ ] Smoke-тест: POST /v1/admin/auth/login → верный пароль 200, неверный 401
-- [ ] Проверить все HTTP статусы: 400, 401, 404, 422
-- [ ] Запустить pytest — все тесты зелёные
+- [x] Smoke-тест: GET /v1/public/products → 200
+- [x] Smoke-тест: GET /v1/public/products/{id} → 200 и 404
+- [x] Smoke-тест: POST /v1/admin/auth/login → верный пароль 200, неверный 401
+- [x] Проверить все HTTP статусы: 400, 401, 404, 422
+- [x] Запустить pytest — все тесты зелёные (26 passed, 0 failed)
 
-## Фаза 8 — AI документация
+## Фаза 8 — AI документация ✓
 
-- [ ] Создать docs/ai/AI_WORKFLOW.md — инструменты, итерации, решения
-- [ ] Сохранять каждую сессию в docs/ai/sessions/session_XX_name.md
+- [x] Создать docs/ai/AI_WORKFLOW.md — инструменты, итерации, решения
+- [x] Сохранять каждую сессию в docs/ai/sessions/session_XX_name.md
 - [ ] Создать docs/ai/PROMPTS.md — ключевые промпты (опционально)
 
 ---
