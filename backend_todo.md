@@ -88,16 +88,16 @@ JWT_SECRET=changeme
 - [x] GET /v1/public/products/{id} — атрибуты + offers
 - [x] Параметр ?offers_sort=price|delivery_date
 - [x] Настроить CORS (origins: http://localhost:3000)
-- [ ] Проверить в браузере: localhost:8000/v1/public/products
+- [x] Проверить в браузере: localhost:8000/v1/public/products
 
-## Фаза 6 — Админское API
+## Фаза 6 — Админское API ✓
 
-- [ ] POST /v1/admin/auth/login — возвращает JWT bearer-токен
-- [ ] Middleware: проверка токена для всех /v1/admin/* роутов
-- [ ] CRUD /v1/admin/products (list, create, get, update, delete)
-- [ ] POST /v1/admin/products/{id}/image — загрузка multipart/form-data в MinIO
-- [ ] GET+POST /v1/admin/sellers
-- [ ] CRUD /v1/admin/products/{id}/offers + PUT/DELETE /v1/admin/offers/{id}
+- [x] POST /v1/admin/auth/login — возвращает JWT bearer-токен
+- [x] Middleware: проверка токена для всех /v1/admin/* роутов
+- [x] CRUD /v1/admin/products (list, create, get, update, delete)
+- [x] POST /v1/admin/products/{id}/image — загрузка multipart/form-data в MinIO
+- [x] GET+POST /v1/admin/sellers
+- [x] CRUD /v1/admin/products/{id}/offers + PUT/DELETE /v1/admin/offers/{id}
 
 ## Фаза 7 — Тесты и качество
 
