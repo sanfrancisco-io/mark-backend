@@ -31,6 +31,11 @@ class AttributeOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
+class AttributeCreate(BaseModel):
+    name: str
+    value: str
+
+
 # ── Public API ─────────────────────────────────────────────────────────────────
 
 class ProductListItem(BaseModel):
@@ -83,6 +88,7 @@ class ProductCreate(BaseModel):
     price_amount: Decimal
     price_currency: str = "RUB"
     stock: int = 0
+    attributes: list[AttributeCreate] = []
 
 
 class ProductUpdate(BaseModel):

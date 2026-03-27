@@ -76,8 +76,12 @@ async def list_products(
 
 @router.post("/products", response_model=ProductAdminItem, status_code=201)
 async def create_product(body: ProductCreate, db: AsyncSession = Depends(get_db)):
-    product = Product(**body.model_dump())
+    data = body.model_dump(exclude={"attributes"})
+    product = Product(**data)
     db.add(product)
+    await db.flush()
+    for attr in body.attributes:
+        db.add(ProductAttribute(product_id=product.id, name=attr.name, value=attr.value))
     await db.commit()
     await db.refresh(product)
     return _product_to_admin_item(product)
